@@ -59,7 +59,7 @@ func createArrowTable(mem memory.Allocator) arrow.Table {
 }
 
 func writeParquetArrow() {
-	file, err := os.Create("output_arrow.parquet")
+	file, err := os.Create("../output_arrow.parquet")
 
 	if err != nil {
 		return

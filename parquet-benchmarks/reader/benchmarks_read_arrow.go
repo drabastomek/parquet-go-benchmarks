@@ -10,7 +10,7 @@ import (
 
 func readParquetArrow() {
 	mem := memory.NewCheckedAllocator(memory.DefaultAllocator)
-	file, err := file.OpenParquetFile("output_arrow.parquet", false)
+	file, err := file.OpenParquetFile("../output_arrow.parquet", false)
 
 	if err != nil {
 		return
@@ -28,8 +28,4 @@ func readParquetArrow() {
 	}
 	defer tbl.Release()
 
-}
-
-func main() {
-	writeParquetArrow()
 }

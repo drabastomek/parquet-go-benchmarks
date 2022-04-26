@@ -5,8 +5,14 @@ import (
 	"github.com/seaguest/log"
 )
 
+type record_fraugster struct {
+	Format   string `parquet:"format"`
+	DataType int32  `parquet:"data_type"`
+	Country  string `parquet:"country"`
+}
+
 func readParquetFraugster() {
-	parquetFilename := "output_fraugster.parquet"
+	parquetFilename := "../output_fraugster.parquet"
 
 	fr, err := floor.NewFileReader(parquetFilename)
 	if err != nil {

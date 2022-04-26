@@ -13,7 +13,7 @@ type record_segmentio struct {
 }
 
 func writeParquetSegmentio() {
-	file, err := os.Create("output_segmentio.parquet")
+	file, err := os.Create("../output_segmentio.parquet")
 	if err != nil {
 		return
 	}

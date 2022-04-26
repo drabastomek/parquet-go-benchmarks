@@ -25,7 +25,7 @@ func writeParquetFraugster() {
 		log.Fatalf("Parsing schema definition failed: %v", err)
 	}
 
-	parquetFilename := "output_fraugster.parquet"
+	parquetFilename := "../output_fraugster.parquet"
 
 	fw, err := floor.NewFileWriter(parquetFilename,
 		goparquet.WithSchemaDefinition(schemaDef),

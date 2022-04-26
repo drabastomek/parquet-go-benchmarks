@@ -12,5 +12,6 @@
 3. Run the benchmark: 
     ```bash
     cd parquet-benchmarks
-    go test -bench=.
+    go test -bench . ./writer/
+    go test -bench . ./reader/
     ```

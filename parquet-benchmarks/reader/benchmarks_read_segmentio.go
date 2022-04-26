@@ -6,8 +6,14 @@ import (
 	"github.com/segmentio/parquet-go"
 )
 
+type record_segmentio struct {
+	Format   string `parquet:"name=format"`
+	DataType int32  `parquet:"name=data_type"`
+	Country  string `parquet:"name=country"`
+}
+
 func readParquetSegmentio() {
-	file, err := os.Open("output_segmentio.parquet")
+	file, err := os.Open("../output_segmentio.parquet")
 	if err != nil {
 		return
 	}

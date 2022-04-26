@@ -16,7 +16,7 @@ type record_xitongsys struct {
 
 func writeParquetXitongsys() {
 	var err error
-	w, err := os.Create("output_xitongsys.parquet")
+	w, err := os.Create("../output_xitongsys.parquet")
 	if err != nil {
 		log.Error("Can't create local file", err)
 		return
