@@ -17,12 +17,14 @@ func readParquetSegmentio() {
 	if err != nil {
 		return
 	}
-	reader := parquet.NewReader(file)
+	defer file.Close()
+
+	reader := parquet.NewGenericReader[record_segmentio](file)
+	buffer := make([]record_segmentio, 1000)
 
 	for {
-		stu := new(record_segmentio)
-
-		if err := reader.Read(stu); err != nil {
+		_, err := reader.Read(buffer)
+		if err != nil {
 			return
 		}
 	}
