@@ -17,19 +17,22 @@ func writeParquetSegmentio() {
 	if err != nil {
 		return
 	}
-	writer := parquet.NewWriter(file)
+	defer file.Close()
 
+	writer := parquet.NewGenericWriter[record_segmentio](file)
 	num := 10000
-	for i := 0; i < num; i++ {
-		stu := record_segmentio{
+	rec := make([]record_segmentio, num)
+
+	for i := range rec {
+		rec[i] = record_segmentio{
 			Format:   "Test",
 			DataType: 1,
 			Country:  "US",
 		}
+	}
 
-		if err := writer.Write(stu); err != nil {
-			return
-		}
+	if _, err := writer.Write(rec); err != nil {
+		return
 	}
 
 	// Closing the writer is necessary to flush buffers and write the file footer.
